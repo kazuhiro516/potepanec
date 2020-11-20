@@ -114,6 +114,7 @@ Temporary Items
 auto-save-list
 tramp
 .\#*
+/erd.pdf
 
 # Org-mode
 .org-id-locations
