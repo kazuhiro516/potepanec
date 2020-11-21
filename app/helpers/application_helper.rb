@@ -1,10 +1,12 @@
 module ApplicationHelper
+  BASE_TITLE = 'BIGBAG'
+
   def full_title(page_title='')
-    base_title = 'BIGBAG'
+    BASE_TITLE.freeze
     if page_title.blank?
-      base_title
+      BASE_TITLE
     else
-      "#{page_title} | #{base_title}"
+      "#{page_title} | #{BASE_TITLE}"
     end
   end
 end
