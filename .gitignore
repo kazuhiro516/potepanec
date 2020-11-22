@@ -115,6 +115,7 @@ auto-save-list
 tramp
 .\#*
 /erd.pdf
+spec/examples.txt
 
 # Org-mode
 .org-id-locations
