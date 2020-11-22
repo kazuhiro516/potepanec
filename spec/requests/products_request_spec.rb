@@ -1,5 +1,4 @@
 RSpec.describe "Products", type: :request do
-
   before do
     get potepan_product_path(product.id)
   end
