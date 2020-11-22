@@ -1,10 +1,11 @@
 RSpec.describe "Products", type: :request do
+
+  before do
+    get potepan_product_path(product.id)
+  end
+
   describe "GET/show" do
     let(:product) { create(:product) }
-
-    before do
-      get potepan_product_path(product.id)
-    end
 
     it '商品詳細画面の表示に成功すること' do
       expect(response).to have_http_status(200)
