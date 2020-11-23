@@ -116,6 +116,7 @@ tramp
 .\#*
 /erd.pdf
 spec/examples.txt
+/.env
 
 # Org-mode
 .org-id-locations
