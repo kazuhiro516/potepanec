@@ -3,8 +3,8 @@ RSpec.describe "Products", type: :request do
     get potepan_product_path(product.id)
   end
 
-  describe "GET/show" do
-    let(:product) { create(:product) }
+  describe "商品詳細画面のテスト" do
+    let!(:product) { create(:product) }
 
     it '商品詳細画面の表示に成功すること' do
       expect(response).to have_http_status(200)
@@ -20,6 +20,10 @@ RSpec.describe "Products", type: :request do
 
     it '商品内容が動的に表示されていること' do
       expect(response.body).to include product.description
+    end
+
+    it '正しいviewを返すこと' do
+      expect(response).to render_template :show
     end
   end
 end
