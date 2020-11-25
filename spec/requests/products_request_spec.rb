@@ -10,15 +10,15 @@ RSpec.describe "Products", type: :request do
       expect(response).to have_http_status(200)
     end
 
-    it '商品名が動的に表示されていること' do
+    it '商品名が含まれていること' do
       expect(response.body).to include product.name
     end
 
-    it '商品価格が動的に表示されていること' do
+    it '商品価格が含まれていること' do
       expect(response.body).to include product.display_price.to_s
     end
 
-    it '商品内容が動的に表示されていること' do
+    it '商品内容が含まれていること' do
       expect(response.body).to include product.description
     end
 
