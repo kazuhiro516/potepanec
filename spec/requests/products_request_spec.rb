@@ -4,7 +4,7 @@ RSpec.describe "Products", type: :request do
   end
 
   describe "商品詳細画面のテスト" do
-    let!(:product) { create(:product) }
+    let(:product) { create(:product) }
 
     it '商品詳細画面の表示に成功すること' do
       expect(response).to have_http_status(200)
