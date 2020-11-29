@@ -1,4 +1,5 @@
 <%= provide(:title, @product.name) %>
+<%= render partial: 'partial/light_section', locals: {title: @product.name} %>
 <section class="mainContent clearfix">
   <div class="container">
     <div class="row singleProduct">
