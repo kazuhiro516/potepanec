@@ -6,10 +6,10 @@ RSpec.describe ApplicationHelper, type: :helper do
       expect(full_title("test")).to eq "test - #{base_title}"
     end
     it '値が文字列の場合base_titleを返す' do
-      expect(full_title("")).to eq "#{base_title}"
+      expect(full_title("")).to eq base_title
     end
     it '値がない場合base_titleを返す' do
-      expect(full_title(nil)).to eq "#{base_title}"
+      expect(full_title(nil)).to eq base_title
     end
   end
 
