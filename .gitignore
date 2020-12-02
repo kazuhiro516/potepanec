@@ -114,6 +114,7 @@ Temporary Items
 auto-save-list
 tramp
 .\#*
+spec/examples.txt
 
 # Org-mode
 .org-id-locations
