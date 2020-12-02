@@ -1,15 +1,13 @@
 RSpec.describe ApplicationHelper, type: :helper do
-  let(:base_title) { 'BIGBAG'.freeze }
-
   describe 'タイトルのテスト' do
     it 'タイトルが正常に表示されること' do
-      expect(full_title("test")).to eq "test - #{base_title}"
+      expect(full_title("test")).to eq "test - #{ApplicationHelper::BASE_TITLE}"
     end
     it '値が文字列の場合base_titleを返す' do
-      expect(full_title("")).to eq base_title
+      expect(full_title("")).to eq ApplicationHelper::BASE_TITLE
     end
     it '値がない場合base_titleを返す' do
-      expect(full_title(nil)).to eq base_title
+      expect(full_title(nil)).to eq ApplicationHelper::BASE_TITLE
     end
   end
 
@@ -22,6 +20,9 @@ RSpec.describe ApplicationHelper, type: :helper do
     end
     it '引数が空白文字列の場合' do
       expect(heading_title("")).to eq [""]
+    end
+    it '引数がnilの場合' do
+      expect(heading_title(nil)).to eq [nil]
     end
   end
 end
