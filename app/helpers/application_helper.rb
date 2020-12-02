@@ -10,10 +10,6 @@ module ApplicationHelper
   end
 
   def heading_title(page_heading)
-    if page_heading.include?("/")
-      page_heading.split("/")
-    else
-      [page_heading]
-    end
+    page_heading&.include?("/") ? page_heading.split("/") : [page_heading]
   end
 end
