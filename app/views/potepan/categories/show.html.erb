@@ -1,6 +1,6 @@
 <!-- LIGHT SECTION -->
 <%= provide(:title, @taxon.name) %>
-<%= render partial: 'partial/light_section', locals: {title: @taxon.permalink} %>
+<%= render 'partial/light_section', title: @taxon.permalink %>
 <!-- MAIN CONTENT SECTION -->
 <section class="mainContent clearfix productsContent">
   <div class="container">
