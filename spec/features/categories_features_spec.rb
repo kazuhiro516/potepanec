@@ -1,6 +1,6 @@
 RSpec.feature "Categories", type: :feature do
   given(:taxonomy) { create(:taxonomy) }
-  given(:taxon) { create :taxon, taxonomy: taxonomy }
+  given(:taxon) { create :taxon, taxonomy: taxonomy, parent: taxonomy.root }
   given!(:product) { create(:product, taxons: [taxon]) }
 
   background do
@@ -24,5 +24,7 @@ RSpec.feature "Categories", type: :feature do
   scenario 'サイドバーにカテゴリーが表示されていること' do
     expect(page).to have_content '商品カテゴリー'
     expect(page).to have_link taxonomy.name
+    click_link taxonomy.name
+    expect(page).to have_selector ".panel-body", text: taxon.name
   end
 end
