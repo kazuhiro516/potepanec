@@ -12,7 +12,13 @@ RSpec.feature "Categories", type: :feature do
   end
 
   scenario 'リンクが表示されていること' do
-    expect(page).to have_link 'HOME'
+    within('.header') do
+      expect(page).to have_link 'HOME'
+    end
+
+    within('.pageHeader') do
+      expect(page).to have_link 'HOME'
+    end
   end
 
   scenario 'カテゴリーに属する商品が表示されている' do
