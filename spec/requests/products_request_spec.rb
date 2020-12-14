@@ -8,8 +8,16 @@ RSpec.describe "Products", type: :request do
     let(:taxon) { create(:taxon, name: "Taxon", taxonomy: taxonomy, parent: taxonomy.root) }
     let(:product) { create(:product, taxons: [taxon]) }
 
+    it '正常にレスポンスが返ってくること' do
+      expect(response).to be_success
+    end
+
     it '商品詳細画面の表示に成功すること' do
       expect(response).to have_http_status(200)
+    end
+
+    it '正しいviewを返すこと' do
+      expect(response).to render_template :show
     end
 
     it '商品名が含まれていること' do
@@ -22,10 +30,6 @@ RSpec.describe "Products", type: :request do
 
     it '商品内容が含まれていること' do
       expect(response.body).to include product.description
-    end
-
-    it '正しいviewを返すこと' do
-      expect(response).to render_template :show
     end
   end
 end
