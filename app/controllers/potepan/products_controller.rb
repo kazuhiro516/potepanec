@@ -1,5 +1,5 @@
 class Potepan::ProductsController < ApplicationController
-  MAX_RELATED_PRODUCT = 4
+  MAX_RELATED_PRODUCT = 4.freeze
 
   def show
     @product = Spree::Product.find(params[:id])
