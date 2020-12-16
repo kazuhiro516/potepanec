@@ -38,6 +38,7 @@ RSpec.feature "Products", type: :feature do
         expect(page).to have_selector '.productBox h3', text: related_product.display_price
         expect(page).to have_link related_product.name
         expect(page).to have_link related_product.display_price
+        click_link related_product.name, href: potepan_product_path(related_product.id)
       end
     end
   end
