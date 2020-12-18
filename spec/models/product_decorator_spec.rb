@@ -5,7 +5,7 @@ RSpec.describe Spree::ProductDecorator, type: :model do
     let(:product) { create(:product, taxons: [taxon]) }
     let!(:related_products) { create_list(:product, 4, taxons: [taxon]) }
 
-    it '関連商品を4つ取得していること' do
+    it '定数に指定した件数のみ取得できていること' do
       expect(product.related_products.count).to eq 4
     end
   end

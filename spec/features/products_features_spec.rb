@@ -39,6 +39,8 @@ RSpec.feature "Products", type: :feature do
         expect(page).to have_link related_product.name
         expect(page).to have_link related_product.display_price
         click_link related_product.name, href: potepan_product_path(related_product.id)
+        expect(current_path).to eq potepan_product_path(related_product.id)
+        expect(page).to have_http_status(:success)
       end
     end
   end
