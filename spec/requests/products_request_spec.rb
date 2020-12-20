@@ -16,10 +16,6 @@ RSpec.describe "Products", type: :request do
       expect(response).to have_http_status(200)
     end
 
-    it '正しいviewを返すこと' do
-      expect(response).to render_template :show
-    end
-
     it '商品名が含まれていること' do
       expect(response.body).to include product.name
     end
