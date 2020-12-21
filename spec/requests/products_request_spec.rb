@@ -7,6 +7,11 @@ RSpec.describe "Products", type: :request do
     let(:taxonomy) { create(:taxonomy) }
     let(:taxon) { create(:taxon, name: "Taxon", taxonomy: taxonomy, parent: taxonomy.root) }
     let(:product) { create(:product, taxons: [taxon]) }
+    let(:related_products) { create_list(:product, 5, taxons: [taxon]) }
+
+    it '正常にレスポンスが返ってくること' do
+      expect(response).to be_success
+    end
 
     it '商品詳細画面の表示に成功すること' do
       expect(response).to have_http_status(200)
@@ -24,8 +29,8 @@ RSpec.describe "Products", type: :request do
       expect(response.body).to include product.description
     end
 
-    it '正しいviewを返すこと' do
-      expect(response).to render_template :show
+    it '関連商品の取得を4つに制限していること' do
+      expect(related_products).not_to eq Potepan::ProductsController::MAX_RELATED_PRODUCT_COUNT
     end
   end
 end
